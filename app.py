@@ -7,17 +7,19 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 
+
 # flask
 app = Flask(__name__)
-
-# nltk
-nltk.download('stopwords')
 
 # stemmer
 stemmer = PorterStemmer()
 
-# stopwords
-stop_words = stopwords.words('english')
+try:
+    stop_words = stopwords.words('english')
+except:
+    import nltk
+    nltk.download('stopwords')
+    stop_words = stopwords.words('english')
 
 # load saved model
 model = pickle.load(open("model.pkl", "rb"))
