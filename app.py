@@ -76,6 +76,3 @@ def predict():
         confidence=confidence
     )
 
-# run app
-if __name__ == '__main__':
-    app.run(debug=True)
